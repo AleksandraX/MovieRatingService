@@ -1,0 +1,12 @@
+<h1>Welcome to the movie rating service</h1>
+<p>Choose a movie and rate it!</p>
+<ol class="film list">
+  <li *ngFor="let film of films" [title]="film.description">
+    <a [routerLink]='["/film/", film.id]' class="nav-link" href="#">
+      <strong>{{ film.title }}</strong> {{ film.producer }} 
+      ({{
+        film.releaseYear
+      }})
+    </a>
+  </li>
+</ol>

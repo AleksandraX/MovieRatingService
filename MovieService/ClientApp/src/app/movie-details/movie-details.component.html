@@ -1,0 +1,36 @@
+
+<div class=film-details-container>
+
+<h2>{{ film.title }}</h2>
+<p>({{ film.releaseDate }}) {{ film.director }}</p>
+<p>Episode Id: {{ film.episodeId }}</p>
+
+<p>
+  Score:
+  <strong
+    >{{ film?.filmRate?.score | number: "1.2-2" }} /
+    {{ film?.filmRate?.peopleVoted }} </strong
+  >people voted
+</p>
+
+<strong>Say what you think about this film and rate it!</strong>
+<p>
+  <strong>Your rate: </strong>
+  <select (change)="rate($event.target.value)">
+    <option
+      *ngFor="let item of [].constructor(11); let i = index"
+      [value]="i"
+    >
+      {{ i }}
+    </option>
+  </select>
+</p>
+
+<strong><span>Opening Crawl:</span> </strong>
+<p>{{ film.openingCrawl }}</p>
+
+<strong><span>Characters:</span> </strong>
+<ul>
+  <li *ngFor="let character of film?.characters"> {{ character }} </li>
+</ul>
+</div>
